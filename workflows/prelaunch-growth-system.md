@@ -33,11 +33,12 @@ Khopilot yayında değilken hedef install veya subscription değil. Hedef:
 1. Brief'i netleştir: motor/araba, lane, hedef metrik, rota/tema.
 2. 3 hook varyantı yaz: natürel, absürd, ürün-proof.
 3. Flow'da ucuz taslak üret: Lite/Fast/Omni, Quality yok.
-4. Palmier'de rough cut ve varyant adlandırması yap.
-5. Gerekiyorsa TRIBE ile aynı brief varyantlarını kıyasla.
-6. En iyi 1-2 varyantı yayınla.
-7. Metrikleri topla.
-8. Winner ise hook'u clone'la; loser ise ilk 3 saniyeyi veya lane'i değiştir.
+4. Content quality gates uygula: viral hook, storytelling, dumbify, anti-AI, voice DNA.
+5. Palmier'de rough cut ve varyant adlandırması yap.
+6. Gerekiyorsa TRIBE ile aynı brief varyantlarını kıyasla.
+7. En iyi 1-2 varyantı yayınla.
+8. Metrikleri topla.
+9. Winner ise hook'u clone'la; loser ise ilk 3 saniyeyi veya lane'i değiştir.
 
 ## Profil İlk 9 Grid
 

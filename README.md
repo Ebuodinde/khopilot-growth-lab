@@ -11,6 +11,7 @@ Amaç: uygulama yayına çıkmadan önce Instagram/Threads/Facebook hesabında t
 - `ideas/`: İçerik fikir bankası.
 - `templates/`: Brief, metrik ve haftalık review şablonları.
 - `experiments/`: Yayın sonrası winner/loser notları.
+- `skill/khopilot-growth-lab/references/content-quality-gates.md`: `content-skills.zip` paketinden uyarlanan hook/story/sadelik/anti-AI/voice kalite kapıları.
 
 ## Codex Skill
 

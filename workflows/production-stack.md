@@ -7,6 +7,7 @@
 | Flow | Görsel/video üretim motoru | Yeni kreatif, karakter, rota atmosferi, AI video |
 | Palmier Pro | Timeline ve varyant kasası | 3+ klip, çok take, export varyantları |
 | TRIBE v2 | Nöro-duyusal pre-test | Aynı brief'teki 3-5 rough cut'ı kıyaslama |
+| Content quality gates | Hook, hikaye, sadelik ve anti-AI kontrolü | Script/caption/carousel yayından önce |
 | Instagram Reels | Gerçek organik test alanı | Hook, retention, share ve follow ölçümü |
 | Threads | Topic ve tartışma alanı | Yerel rota, motor/araba kavgası, Dear Algo dili |
 | Meta Ads | Winner büyütme | App hazır ve organik winner çıktığında |
@@ -59,8 +60,9 @@ Her içerik için Codex şu paketi üretmeli:
 2. 3 varyant: natürel, absürd, ürün-proof.
 3. Flow prompt'u.
 4. Negatif prompt / kaçınılacaklar.
-5. Overlay metni.
-6. Caption.
-7. Threads metni.
-8. Story poll/anket.
-9. Metrik toplama şablonu.
+5. Quality gate audit.
+6. Overlay metni.
+7. Caption.
+8. Threads metni.
+9. Story poll/anket.
+10. Metrik toplama şablonu.

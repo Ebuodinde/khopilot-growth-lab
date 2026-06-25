@@ -32,6 +32,17 @@
 
 ### Story
 
+### Quality Gates
+
+```text
+Viral hook:
+Story:
+Dumbify:
+Anti-AI:
+Voice DNA:
+Final action:
+```
+
 ### Metrik Takibi
 
 Yayın sonrası `metrics-intake.md` doldur.

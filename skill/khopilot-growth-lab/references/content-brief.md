@@ -14,6 +14,12 @@ Use this output skeleton when creating one content item.
 - Negative prompt:
 - Palmier notes:
 - TRIBE pre-test note, if needed:
+- Quality gates:
+  - Viral hook:
+  - Story:
+  - Dumbify:
+  - Anti-AI:
+  - Voice DNA:
 - Overlay:
 - Caption:
 - Threads:
