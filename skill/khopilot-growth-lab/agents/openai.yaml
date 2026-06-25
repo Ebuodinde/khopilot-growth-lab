@@ -1,0 +1,8 @@
+interface:
+  display_name: "Khopilot Growth Lab"
+  short_description: "Pre-launch viral social workflow"
+  brand_color: "#ff5a1f"
+  default_prompt: "Use $khopilot-growth-lab to create a pre-launch Khopilot Reel brief with hook variants, Flow prompt, caption, and metric plan."
+
+policy:
+  allow_implicit_invocation: true
