@@ -29,21 +29,35 @@ Don't specify timestamps or clip counts — the agent handles length and sequenc
 - **Anti-artifact (vehicles/landscape):** ONE named light source (stabilizes warping); force verbs (lean/grip/compress/surge); "wheels spinning, correct rotational motion blur, crisp spokes"; anchor fixed geometry (guardrail, horizon); film grain to kill the over-polished look.
 - **Avoid-list** (put in system prompt): subtitles, captions, on-screen text, watermark, logo, distorted wheels, warped spokes, morphing, warping, flicker, duplicate limbs, inconsistent lighting, background shifting, floating objects, cartoon, oversaturation.
 
+## Physical & identity consistency (lock the subject)
+
+Generative video drifts a subject's identity across cuts unless it is locked hard. This is a top failure mode — prevent it every time:
+
+- **One concrete, unambiguous subject.** Name the exact identity in the system prompt: type, model/shape, colour, count. NEVER write "A or B", a vague generic noun ("a vehicle / a figure / an object"), or anything the model can resolve differently per clip — ambiguity is exactly what splits the subject across shots.
+- **Every beat names that same locked subject.** In the story prompt refer back to the exact identity ("the same matte dark-grey car"), never a generic noun.
+- **Framings must match the subject.** Never use a shot/POV that implies a *different* subject than the lock (a handlebar / front-wheel POV reads as a two-wheeler; a car's POV is over the hood through the windshield). Match camera language to the locked identity.
+- **Lock across clips:** identity, scale, count, world geometry, light direction, time of day, grade — all in the system prompt so they persist.
+- **Self-check before returning:** read every beat — does each name the SAME subject, with only framings consistent with it? Does anything imply a different type/scale/count? If yes, fix it. Add "subject type changing between shots / a different <subject> between shots / mixed types" to the avoid-list.
+
 ## Prompt to dispatch
 ```
 You are a cinematographer + Flow (agentic Veo) prompt engineer. Read this agent file.
 Output TWO blocks for Flow's agentic mode:
 
-(1) SYSTEM PROMPT — short (under ~120 words): the consistency bible. Lock the subject/
-ingredient(s) from the labeled images, the global visual grammar (lens, depth of field,
+(1) SYSTEM PROMPT — short (under ~120 words): the consistency bible. Lock ONE concrete,
+unambiguous subject (exact type/model/colour/count — never "A or B" or a generic noun)
+from the labeled images, the global visual grammar (lens, depth of field,
 color grade, film texture, single light-source logic), the audio policy (diegetic SFX +
 named ambient only, NO narration, no music; no subtitles; 9:16 vertical), the avoid-list,
 and the brand constraints.
 
 (2) STORY PROMPT — the full video as continuous beats from the visual track. Per beat:
 shot size + angle + movement, a force-verb action, anchored geometry, and that moment's
-SFX/Ambient. Write it as one flowing story the agent will split into consistent clips —
-NO timestamps, NO clip counts. End on a frame that echoes the opening (loop-back).
+SFX/Ambient. Name the exact locked subject in every beat (not a generic noun); never use
+a shot/POV that implies a different subject. Write it as one flowing story the agent will
+split into consistent clips — NO timestamps, NO clip counts. End on a frame that echoes
+the opening (loop-back). Before returning, self-check: every beat names the SAME subject
+with framings consistent with it; nothing implies a different type/scale/count.
 
 Concept/hook/metric: {…}
 Visual track: {…}

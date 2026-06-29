@@ -48,6 +48,7 @@ For a small job, run the relevant agent only. For Tier-0 quick asks, apply the r
 - Output skeleton: `references/content-brief.md`.
 - Metric interpretation: `references/metrics-intake.md`.
 - Prediction-vs-data discipline + standing abstracted inferences: `references/calibration.md`.
+- Follower-growth sprint operating procedure (what to attend to across a campaign, not a single video): `references/growth-campaign.md`.
 - **Khopilot tenant pack** (lanes, voice, idea bank, tools): `references/prelaunch-growth-system.md`, `references/prelaunch-idea-bank.md`, `references/production-stack.md`.
 
 Load only what the current request needs.
