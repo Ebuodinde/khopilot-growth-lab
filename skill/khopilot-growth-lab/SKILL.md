@@ -29,22 +29,22 @@ The **4 transferable writing moves**: decide-at-frame-1 · open a *specific* gap
 
 ## The Factory Loop (how to run a job)
 
-Dispatch the specialist agents in `agents/` via the Agent tool (each file is a ready prompt + input contract). Default order:
+Each file in `agents/` is a ready playbook (role + input contract + prompt). Run them as steps in order — apply each inline, or hand it to a sub-agent / parallel exec if your host has one (e.g. Codex `codex exec`). Default order:
 
 1. `hook-smith` — generate N hooks across the taxonomy, score for watch-time + send potential, return top 3. (`agents/hook-smith.md`)
 2. `script-architect` — fill the beat×channel matrix for the chosen hook; design for mute-first. (`agents/script-architect.md`)
 3. `retention-editor` — cut/pattern-interrupt/loop-back plan. (`agents/retention-editor.md`)
-4. Production (only for a chosen winner): `flow-prompt-director` (Flow agentic mode: a short **system prompt** + a full **story prompt** — Flow sets clip length and renders the whole story as consistent consecutive clips) + `vo-director` (AI Studio voiceover spec mapped to the real UI fields). (`agents/flow-prompt-director.md`, `agents/vo-director.md`)
+4. Production (only for a chosen winner): `flow-prompt-director` (a shared consistency bible + per-segment shot prompts — build shot-by-shot at ~8–10s per clip and assemble; references locked first) + `vo-director` (voiceover spec mapped to the AI Studio UI fields). (`agents/flow-prompt-director.md`, `agents/vo-director.md`)
 5. After publish: `metric-judge` — read Insights, decide clone/revise/kill. (`agents/metric-judge.md`)
 
-For a small job, run the relevant agent only. For Tier-0 quick asks, apply the rig inline without dispatching.
+For a small job, run the relevant role only. For quick asks, apply the rig inline.
 
 ## Reference Routing
 
 - The rig (matrix, levers, hook thresholds, eligibility): `references/system.md`.
 - Algorithm mechanics + sources: `references/algorithm-2026.md`.
 - Hook taxonomy + generate-many + scoring: `references/hook-engine.md`.
-- Writing quality gates (route to real skills): `references/content-quality-gates.md`.
+- Writing quality gates (self-contained criteria): `references/content-quality-gates.md`.
 - Output skeleton: `references/content-brief.md`.
 - Metric interpretation: `references/metrics-intake.md`.
 - Prediction-vs-data discipline + standing abstracted inferences: `references/calibration.md`.
@@ -59,9 +59,9 @@ A **tenant** is the subject the rig is poured through: its lane/positioning, voi
 
 **Khopilot constraints (always on for this tenant):** pre-launch → no install CTA; optimize follows/saves/sends/comments/profile-visits/beta-demand. Turkish-first, natural, can be slightly absurd/dirty. Avoid death/crash fear, illegal speed, radar evasion, generic AI-ad wording. Asphalt-guaranteed routes only.
 
-## Quality Gates Are Real Skills Here
+## Quality Gates
 
-Before shipping any script/caption, run the host's writing skills in order: `viral-hooks` → `storytelling` → `dumbify` → `anti-ai-writing` → `content-skills` (full pipeline incl. voice-dna). The rig chooses the structure and metric; these make the words publishable. Criteria + audit block: `references/content-quality-gates.md`.
+Before shipping any script/caption, run the writing gates in order — viral hook → storytelling → dumbify → anti-AI → voice — applying the criteria + audit block in `references/content-quality-gates.md` inline. (If your host ships these as separate invocable skills, you may call those instead.) The rig chooses the structure and metric; the gates make the words publishable.
 
 ## Output Style
 

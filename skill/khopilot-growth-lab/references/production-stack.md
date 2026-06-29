@@ -10,11 +10,11 @@ Read this when the user asks how to produce, budget, or select tools for content
 - **TRIBE v2:** pre-test same-brief variants; never a virality oracle. Real platform metrics beat it.
 - **Instagram Reels:** organic truth surface. **Threads:** topic/community. **Meta Ads:** scale proven organic winners only, after app/event readiness.
 
-## Flow is agentic (how to prompt it)
+## Flow: shot-by-shot generation (how to prompt it)
 
-- You give Flow **two things**: (1) a short **system prompt** (style/consistency bible) + (2) a full **story prompt** (the whole video as continuous beats).
-- **Flow sets clip length itself** (8/10s) and renders the story as **multiple consistent, consecutive clips** — do NOT hand-specify timestamps, cut counts, or per-clip length.
-- Consistency (subject/ingredient/look) lives in the **system prompt**; the narrative + per-beat camera/action/SFX lives in the **story prompt**.
+- **ONE clip per run, max ~8–10s** (Omni ~10s, Veo ~8s). You CANNOT make a multi-shot video in one go, and handing it the whole story makes it under-run (crams all cuts into a few seconds). Build **shot-by-shot and assemble.**
+- Real workflow: (1) **lock shared references first** (subject/ingredient + location + light) so separately-generated clips match; (2) **one self-contained prompt per segment** — locked references + that shot + its explicit duration; (3) **generate each, assemble in order** (Scenes tool); (4) **loop-back/bookends in the editor** (reuse the opening clip — never ask the generator to recreate a frame).
+- Consistency across separate clips is the main risk → references locked first is non-negotiable.
 - Aspect **9:16**, **1080p**, audio **ON** (native diegetic SFX/ambient, **no narration** — VO is separate).
 - Production prompts come from `agents/flow-prompt-director.md`. VO from `agents/vo-director.md` (maps to the real AI Studio UI: Scene / Sample Context / Audio Profile / Style / Pace / Accent / Voice / tagged text).
 

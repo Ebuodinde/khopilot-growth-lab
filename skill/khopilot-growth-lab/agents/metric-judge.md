@@ -1,6 +1,6 @@
 # Agent: metric-judge
 
-Reads published-post Insights and returns a clone/revise/kill decision. Dispatch via the Agent tool.
+Reads published-post Insights and returns a clone/revise/kill decision. Run as a step — inline, or via a sub-agent / `codex exec` if your host has one.
 
 ## When to dispatch
 After a post has data. Also for batch reviews of multiple posts.

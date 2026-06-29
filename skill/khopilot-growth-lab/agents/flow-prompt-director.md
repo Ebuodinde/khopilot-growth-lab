@@ -1,25 +1,28 @@
 # Agent: flow-prompt-director
 
-Produces a Flow **agentic** prompt set — (1) a short **system prompt** + (2) a full **story prompt** — from a script's visual track. Flow is agentic: it sets clip length (8/10s) itself and renders the whole story as multiple **consistent, consecutive** clips. Do NOT write a single timestamped clip. Dispatch via the Agent tool.
+Produces a Flow prompt set: a shared **consistency bible** + one **self-contained prompt per shot/segment**. Flow generates ONE clip per run (max ~8–10s), so the video is built shot-by-shot and assembled — NOT one big story prompt. Run as a step — inline, or via a sub-agent / `codex exec` if your host has one.
 
 ## When to dispatch
 Only for a chosen winner going to production. Needs the visual track + any reference images.
 
 ## How Flow works now (critical)
-You give Flow two things:
-1. **System prompt** — short. The persistent *style/consistency bible* the agent applies to every clip: world, subject locks, visual grammar, audio policy, avoid-list, brand rules. Keep it tight.
-2. **Story prompt** — the full narrative (the whole video), written as continuous beats. The agent segments it into multiple clips, picks each clip's length, and keeps characters/look consistent across them.
+The tool generates **ONE clip per run, max ~8–10s** (Omni ~10s, Veo ~8s). You CANNOT make a multi-shot video in one generation, and if you hand it the whole story it UNDER-RUNS (crams every cut into a few seconds). The real workflow is shot-by-shot:
 
-Don't specify timestamps or clip counts — the agent handles length and sequencing. Your job is consistency (system prompt) + a clear, shootable story (story prompt).
+1. **Lock shared references FIRST.** Establish the subject/ingredient(s), the location, and the light direction as fixed references the tool reuses. Without this, separately-generated clips drift — a slightly different subject/place/light each time — and the assembly looks disjointed. This is the single biggest risk of per-shot generation.
+2. **Write one self-contained prompt PER segment.** A *segment* = one **fixed-length clip** (~8–10s) carrying **2–3 beats as a single continuous camera move** — clip count = total length ÷ clip length, NOT one clip per beat (one-per-beat multiplies render time and waste). Each prompt: the locked references + that segment's continuous shot + SFX + its **explicit duration**. Restate the locked subject/location/light in every segment prompt — they're generated independently.
+3. **Generate each segment, then assemble** the clips in order in the editor / Scenes tool to reach the total length.
+4. **Frame-matching effects (loop-back, bookends) are EDITOR operations** — reuse the opening clip in the edit; never ask the generator to recreate a specific earlier frame (it muddles it and wastes a segment).
+
+Pace per the rig (hook breathes, mid-cuts ~2–3s, payoff longest). Always dictate each segment's duration — the generator under-runs otherwise.
 
 ## INPUT CONTRACT — give ALL in one shot
-**A. Plan:** `concept` / `chosen_hook` / `target_metric` / `visual_track` (the VISUAL column per beat from script-architect) / `approx_runtime` (hint only, e.g. ~15–20s; agent decides clips).
+**A. Plan:** `concept` / `chosen_hook` / `target_metric` / `visual_track` (the VISUAL column per beat from script-architect) / `total_length` + **per-beat durations** (REQUIRED — the agent under-runs and crams cuts if left to decide; set durations by the rig's pacing).
 **B. Format:** 9:16, 1080p, audio ON (native diegetic SFX/ambient only — **no narration**; VO is `vo-director`).
 **C. Reference images (user labels each):** `role` + `what it is` + `which beat`. Roles:
 - `ingredient` — bike/car/character/object/**logo** to keep IDENTICAL across clips → goes in the **system prompt** (consistency lock).
 - `style-reference` — grade/mood → system prompt.
 - `location-reference` — real road/scene → system prompt (anchors geometry).
-- `start-frame` / `end-frame` — opening / closing frame → story prompt (end-frame enables the loop-back).
+- `start-frame` — opening frame of a segment → that segment's prompt. (Loop-back/bookends are editor operations, not generation.)
 - (none → pure text-to-video.)
 **D. Brand constraints** — Khopilot: asphalt-only, no crash/illegal-speed/radar, no logos-in-frame, no death-fear.
 
@@ -41,30 +44,32 @@ Generative video drifts a subject's identity across cuts unless it is locked har
 
 ## Prompt to dispatch
 ```
-You are a cinematographer + Flow (agentic Veo) prompt engineer. Read this agent file.
-Output TWO blocks for Flow's agentic mode:
+You are a cinematographer + Flow prompt engineer. Read this agent file. The tool makes
+ONE clip per run (max ~8–10s), so output a shared bible + per-segment prompts:
 
-(1) SYSTEM PROMPT — short (under ~120 words): the consistency bible. Lock ONE concrete,
-unambiguous subject (exact type/model/colour/count — never "A or B" or a generic noun)
-from the labeled images, the global visual grammar (lens, depth of field,
-color grade, film texture, single light-source logic), the audio policy (diegetic SFX +
-named ambient only, NO narration, no music; no subtitles; 9:16 vertical), the avoid-list,
-and the brand constraints.
+(1) CONSISTENCY BIBLE — short: the shared lock applied to EVERY segment. Lock ONE concrete,
+unambiguous subject (exact type/model/colour/count — never "A or B" or a generic noun),
+the location, the single light-source direction, the visual grammar (lens/DoF/grade/film
+texture), the audio policy (diegetic SFX + named ambient only, NO narration/music; no
+subtitles; 9:16), the avoid-list, and brand constraints. State these references are
+established/locked FIRST and reused by every segment.
 
-(2) STORY PROMPT — the full video as continuous beats from the visual track. Per beat:
-shot size + angle + movement, a force-verb action, anchored geometry, and that moment's
-SFX/Ambient. Name the exact locked subject in every beat (not a generic noun); never use
-a shot/POV that implies a different subject. Write it as one flowing story the agent will
-split into consistent clips — NO timestamps, NO clip counts. End on a frame that echoes
-the opening (loop-back). Before returning, self-check: every beat names the SAME subject
-with framings consistent with it; nothing implies a different type/scale/count.
+(2) PER-SEGMENT PROMPTS — one self-contained prompt per shot, in order. Each: the shot
+(size+angle+movement), a force-verb action, anchored geometry, that shot's SFX/Ambient,
+and its explicit DURATION (≤ tool max ~8–10s). RESTATE the locked subject + location +
+light in every segment (generated independently). Name the exact subject; never a framing
+that implies a different subject. Do NOT include a loop-back/bookend segment — editor's
+job; end on the last forward beat.
+
+Self-check before returning: every segment names the SAME subject/location/light; each
+duration ≤ tool max; no segment recreates another segment's exact frame.
 
 Concept/hook/metric: {…}
-Visual track: {…}
-Approx runtime hint: {…}
+Visual track + per-segment durations: {…}
+Tool max clip length: {…}
 Reference images (role+what+beat): {…}
 Brand constraints: {…}
 ```
 
 ## OUTPUT
-Two paste-ready blocks (System prompt + Story prompt) + the avoid-list. Pair with `vo-director` output in the editor; align the VO punchline to the matching beat.
+A consistency bible + an ordered list of per-segment prompts (each with its duration) + the avoid-list. Generate each segment separately, assemble in order in the editor / Scenes tool; loop-back and final mix in the editor. Pair with `vo-director`; align the VO to the matching segments.

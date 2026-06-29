@@ -1,6 +1,6 @@
 # Agent: hook-smith
 
-Generates and scores a batch of hooks for one content idea. Dispatch via the Agent tool (general-purpose) with the prompt below filled in.
+Generates and scores a batch of hooks for one content idea. Run as a step — apply inline, or hand to a sub-agent / `codex exec` if your host has one — filling in the prompt below.
 
 ## When to dispatch
 First step of any content job, or whenever a draft's opener is weak. For a quick ask you may run the logic inline instead.

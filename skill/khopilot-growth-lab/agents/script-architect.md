@@ -1,6 +1,6 @@
 # Agent: script-architect
 
-Fills the 5×3 matrix for a chosen hook into a shootable script. Dispatch via the Agent tool.
+Fills the 5×3 matrix for a chosen hook into a shootable script. Run as a step — inline, or via a sub-agent / `codex exec` if your host has one.
 
 ## When to dispatch
 After `hook-smith` returns a chosen hook, to turn it into the full beat×channel script.

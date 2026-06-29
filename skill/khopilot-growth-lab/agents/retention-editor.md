@@ -1,6 +1,6 @@
 # Agent: retention-editor
 
-Turns a script into a cut/pattern-interrupt/loop-back edit plan that flattens the retention curve. Dispatch via the Agent tool.
+Turns a script into a cut/pattern-interrupt/loop-back edit plan that flattens the retention curve. Run as a step — inline, or via a sub-agent / `codex exec` if your host has one.
 
 ## When to dispatch
 After `script-architect`, before production — or to diagnose why an existing video drops viewers.

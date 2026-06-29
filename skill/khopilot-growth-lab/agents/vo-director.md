@@ -1,6 +1,6 @@
 # Agent: vo-director
 
-Produces an AI Studio (Gemini TTS) voiceover spec mapped to the **actual Generate-speech UI fields**. Dispatch via the Agent tool.
+Produces an AI Studio (Gemini TTS) voiceover spec mapped to the **actual Generate-speech UI fields**. Run as a step — inline, or via a sub-agent / `codex exec` if your host has one.
 
 ## When to dispatch
 For a chosen winner needing narration. Runs alongside `flow-prompt-director`.

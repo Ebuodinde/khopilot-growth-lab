@@ -2,23 +2,21 @@
 
 Read this when creating, auditing, or polishing Khopilot scripts, hooks, captions, carousels, or Threads posts.
 
-In this Claude Code build the gates are **real, invocable skills**, not a copied static pack. This reference holds the Khopilot-specific pass/kill criteria; the skills do the actual rewriting.
+This reference is **self-contained**: it holds the pass/kill criteria to apply inline. (If your host ships these as separate invocable writing skills — e.g. viral-hooks / storytelling / dumbify / anti-ai-writing / voice — you may call those instead; otherwise just apply the criteria below.)
 
 ## Position
 
-These gates do not choose the content idea. Khopilot strategy chooses the lane, vehicle, route, and target metric. The gates make the chosen idea publishable.
+These gates do not choose the content idea. Strategy chooses the lane, subject, and target metric. The gates make the chosen idea publishable.
 
-Order (each line is a skill you can invoke):
+Order:
 
-1. `viral-hooks`
-2. `storytelling`
-3. `dumbify`
-4. `anti-ai-writing`
-5. voice DNA — bundled inside `content-skills`
+1. Viral hook
+2. Storytelling
+3. Dumbify
+4. Anti-AI writing
+5. Voice
 
-Shortcut: invoke `content-skills` to run all five in their designed order in one pass.
-
-## Gate 1 - Viral Hooks (`viral-hooks`)
+## Gate 1 - Viral Hooks
 
 Use for the first 1-2 seconds of Reels, carousel slide 1, first line of Threads, and opening caption line.
 
@@ -35,7 +33,7 @@ Khopilot example:
 - Strong: "Google Maps buna yol diyor. Motorcu buna karakter testi diyor."
 - Weak: "Bugün size çok ilginç bir yoldan bahsedeceğim."
 
-## Gate 2 - Storytelling (`storytelling`)
+## Gate 2 - Storytelling
 
 Use for talking-head, route lore, build-in-public, and absurd mini-drama content.
 
@@ -48,7 +46,7 @@ Pass criteria:
 
 Skip heavy use for pure mechanical demos.
 
-## Gate 3 - Dumbify (`dumbify`)
+## Gate 3 - Dumbify
 
 Use for explainers, product-proof, technical carousel, and any dense caption.
 
@@ -65,7 +63,7 @@ Khopilot translation:
 - Instead of "nöro-duyusal kreatif pre-test", say "hangi video daha canlı duruyor?"
 - Instead of "route intelligence", say "virajı geç görmeden önce uyarı."
 
-## Gate 4 - Anti-AI Writing (`anti-ai-writing`)
+## Gate 4 - Anti-AI Writing
 
 Use as final filter on all written copy: captions, carousel text, Threads, Story prompts, and pinned profile text. Use lightly on spoken scripts.
 
@@ -82,7 +80,7 @@ Khopilot examples:
 - Strong: "D915'te viraj bitmiyor, ego bitiyor."
 - Weak: "Khopilot revolutionizes your premium driving experience."
 
-## Gate 5 - Voice DNA (inside `content-skills`)
+## Gate 5 - Voice DNA
 
 Use when the account has enough real posts/transcripts. Until then, mark voice as unverified.
 
