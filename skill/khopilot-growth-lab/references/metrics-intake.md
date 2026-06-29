@@ -32,6 +32,8 @@ Notlar:
 
 ## Decision Rules
 
+**Lead indicator = sends per reach** (the non-follower breakout lever). Watch time / completion = survival (did it pass the seed test). Read these two first; saves/comments/likes are secondary votes.
+
 - High sends/reach: viral/share winner.
 - High saves/reach: route lore or product-proof winner.
 - High comments but low follows: debate winner; clone for Threads/Story, not necessarily paid.

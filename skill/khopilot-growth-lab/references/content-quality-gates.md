@@ -2,21 +2,23 @@
 
 Read this when creating, auditing, or polishing Khopilot scripts, hooks, captions, carousels, or Threads posts.
 
-This reference adapts the uploaded `content-skills.zip` pack into the Khopilot workflow.
+In this Claude Code build the gates are **real, invocable skills**, not a copied static pack. This reference holds the Khopilot-specific pass/kill criteria; the skills do the actual rewriting.
 
 ## Position
 
 These gates do not choose the content idea. Khopilot strategy chooses the lane, vehicle, route, and target metric. The gates make the chosen idea publishable.
 
-Order:
+Order (each line is a skill you can invoke):
 
-1. Viral Hooks
-2. Storytelling
-3. Dumbify
-4. Anti-AI Writing
-5. Voice DNA
+1. `viral-hooks`
+2. `storytelling`
+3. `dumbify`
+4. `anti-ai-writing`
+5. voice DNA — bundled inside `content-skills`
 
-## Gate 1 - Viral Hooks
+Shortcut: invoke `content-skills` to run all five in their designed order in one pass.
+
+## Gate 1 - Viral Hooks (`viral-hooks`)
 
 Use for the first 1-2 seconds of Reels, carousel slide 1, first line of Threads, and opening caption line.
 
@@ -33,7 +35,7 @@ Khopilot example:
 - Strong: "Google Maps buna yol diyor. Motorcu buna karakter testi diyor."
 - Weak: "Bugün size çok ilginç bir yoldan bahsedeceğim."
 
-## Gate 2 - Storytelling
+## Gate 2 - Storytelling (`storytelling`)
 
 Use for talking-head, route lore, build-in-public, and absurd mini-drama content.
 
@@ -46,7 +48,7 @@ Pass criteria:
 
 Skip heavy use for pure mechanical demos.
 
-## Gate 3 - Dumbify
+## Gate 3 - Dumbify (`dumbify`)
 
 Use for explainers, product-proof, technical carousel, and any dense caption.
 
@@ -63,7 +65,7 @@ Khopilot translation:
 - Instead of "nöro-duyusal kreatif pre-test", say "hangi video daha canlı duruyor?"
 - Instead of "route intelligence", say "virajı geç görmeden önce uyarı."
 
-## Gate 4 - Anti-AI Writing
+## Gate 4 - Anti-AI Writing (`anti-ai-writing`)
 
 Use as final filter on all written copy: captions, carousel text, Threads, Story prompts, and pinned profile text. Use lightly on spoken scripts.
 
@@ -80,7 +82,7 @@ Khopilot examples:
 - Strong: "D915'te viraj bitmiyor, ego bitiyor."
 - Weak: "Khopilot revolutionizes your premium driving experience."
 
-## Gate 5 - Voice DNA
+## Gate 5 - Voice DNA (inside `content-skills`)
 
 Use when the account has enough real posts/transcripts. Until then, mark voice as unverified.
 
@@ -92,7 +94,7 @@ Starting voice:
 - Can be slightly dirty or absurd.
 - Sounds like motor/car culture, not SaaS copy.
 
-Once 20 real posts or transcripts exist, build a voice profile from them and update this skill/reference.
+Once 20 real posts or transcripts exist, build a voice profile from them and update this reference.
 
 ## Required Audit Block
 

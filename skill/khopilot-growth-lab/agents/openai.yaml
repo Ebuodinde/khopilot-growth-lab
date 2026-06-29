@@ -1,8 +1,8 @@
 interface:
   display_name: "Khopilot Growth Lab"
-  short_description: "Pre-launch viral social workflow"
+  short_description: "Topic-agnostic short-form virality engine (Khopilot default tenant)"
   brand_color: "#ff5a1f"
-  default_prompt: "Use $khopilot-growth-lab to create a pre-launch Khopilot Reel brief with hook variants, Flow prompt, caption, and metric plan."
+  default_prompt: "Use $khopilot-growth-lab to design a watchable short-form video: generate scored hooks, fill the beat×channel matrix, and produce the Flow prompt, AI Studio voiceover spec, and metric plan."
 
 policy:
   allow_implicit_invocation: true

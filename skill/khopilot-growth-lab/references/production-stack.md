@@ -2,14 +2,21 @@
 
 Read this when the user asks how to produce, budget, or select tools for content.
 
-## Roles
+## Roles (who does what)
 
-- Flow: video/image generation. Use Veo/Omni/Nano Banana.
-- Palmier Pro: timeline, variant organization, export control.
-- TRIBE v2: neuro-sensory pre-test for same-brief rough cuts.
-- Instagram Reels: organic truth surface.
-- Threads: topic/community distribution.
-- Meta Ads: scale only proven organic winners after app/event readiness.
+- **Flow (Veo/Omni/Nano Banana):** the visual + **native diegetic audio** (engine, tires, wind SFX). Do NOT write spoken narration here.
+- **Google AI Studio (Gemini TTS):** the spoken **voiceover only**. See `agents/vo-director.md`.
+- **Editor (Edits app / Palmier):** mix VO + SFX + music, time the cuts, captions, loop-back, export.
+- **TRIBE v2:** pre-test same-brief variants; never a virality oracle. Real platform metrics beat it.
+- **Instagram Reels:** organic truth surface. **Threads:** topic/community. **Meta Ads:** scale proven organic winners only, after app/event readiness.
+
+## Flow is agentic (how to prompt it)
+
+- You give Flow **two things**: (1) a short **system prompt** (style/consistency bible) + (2) a full **story prompt** (the whole video as continuous beats).
+- **Flow sets clip length itself** (8/10s) and renders the story as **multiple consistent, consecutive clips** — do NOT hand-specify timestamps, cut counts, or per-clip length.
+- Consistency (subject/ingredient/look) lives in the **system prompt**; the narrative + per-beat camera/action/SFX lives in the **story prompt**.
+- Aspect **9:16**, **1080p**, audio **ON** (native diegetic SFX/ambient, **no narration** — VO is separate).
+- Production prompts come from `agents/flow-prompt-director.md`. VO from `agents/vo-director.md` (maps to the real AI Studio UI: Scene / Sample Context / Audio Profile / Style / Pace / Accent / Voice / tagged text).
 
 ## Flow Credit Rules
 
